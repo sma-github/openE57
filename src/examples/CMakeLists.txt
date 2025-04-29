@@ -4,7 +4,7 @@ list(APPEND EXAMPLES
 )
 
 foreach(EXAMPLE ${EXAMPLES})
-  add_executable(${EXAMPLE} ${CMAKE_CURRENT_SOURCE_DIR}/${EXAMPLE}.cpp)
+  add_executable(${EXAMPLE} ${EXAMPLE}.cpp)
   set_target_properties(${EXAMPLE}  PROPERTIES 
     DEBUG_POSTFIX ${CMAKE_DEBUG_POSTFIX} 
     MSVC_RUNTIME_LIBRARY "${CMAKE_MSVC_RUNTIME_LIBRARY}")

@@ -6,18 +6,19 @@ list(APPEND compiler_definitions
 #
 add_library(
   ${PROJECT_NAME} ${LIBRARY_TYPE}
-  ${CMAKE_CURRENT_SOURCE_DIR}/src/api.cpp
-  ${CMAKE_CURRENT_SOURCE_DIR}/src/openE57Simple.cpp
-  ${CMAKE_CURRENT_SOURCE_DIR}/src/openE57SimpleImpl.cpp
-  ${CMAKE_CURRENT_SOURCE_DIR}/src/openE57.cpp
-  ${CMAKE_CURRENT_SOURCE_DIR}/src/openE57Impl.cpp
-  ${CMAKE_CURRENT_SOURCE_DIR}/src/time_conversion.cpp
-  ${CMAKE_CURRENT_SOURCE_DIR}/include/openE57/impl/openE57Impl.h
-  ${CMAKE_CURRENT_SOURCE_DIR}/include/openE57/impl/openE57SimpleImpl.h
-  ${CMAKE_CURRENT_SOURCE_DIR}/include/openE57/impl/time_conversion.h
-  ${CMAKE_CURRENT_SOURCE_DIR}/include/openE57/api.h
-  ${CMAKE_CURRENT_SOURCE_DIR}/include/openE57/openE57.h
-  ${CMAKE_CURRENT_SOURCE_DIR}/include/openE57/openE57Simple.h)
+  src/api.cpp
+  src/openE57Simple.cpp
+  src/openE57SimpleImpl.cpp
+  src/openE57.cpp
+  src/openE57Impl.cpp
+  src/time_conversion.cpp
+  include/openE57/impl/openE57Impl.h
+  include/openE57/impl/openE57SimpleImpl.h
+  include/openE57/impl/time_conversion.h
+  include/openE57/api.h
+  include/openE57/openE57.h
+  include/openE57/openE57Simple.h
+)
 
 generate_export_header(${PROJECT_NAME})
 set_target_properties(${PROJECT_NAME} PROPERTIES 
@@ -47,8 +48,9 @@ target_clangformat_setup(${PROJECT_NAME})
 # Extension Library for LAS I/O support
 #
 add_library(${PROJECT_NAME}las ${LIBRARY_TYPE} 
-  ${CMAKE_CURRENT_SOURCE_DIR}/src/${PROJECT_NAME}las.cpp
-  ${CMAKE_CURRENT_SOURCE_DIR}/include/openE57/LAS/${PROJECT_NAME}las.h)
+  src/${PROJECT_NAME}las.cpp
+  include/openE57/LAS/${PROJECT_NAME}las.h
+)
 
 set_target_properties(${PROJECT_NAME}las PROPERTIES 
   DEBUG_POSTFIX ${CMAKE_DEBUG_POSTFIX}
