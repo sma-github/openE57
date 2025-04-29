@@ -1,7 +1,7 @@
 include(FetchContent)
 # Find the Xerces libraries
 set(Xerces_USE_STATIC_LIBS ON)
-find_package(XercesC 3.2 QUIET)
+find_package(XercesC 3 CONFIG REQUIRED)
 if (XercesC_FOUND)
   set(XML_LIBRARIES ${XercesC_LIBRARIES})
   set(XML_INCLUDE_DIRS ${XercesC_INCLUDE_DIRS})
@@ -39,7 +39,7 @@ if(BUILD_TOOLS)
     set(Boost_USE_STATIC_RUNTIME ON)
   endif()
   set(Boost_USE_MULTITHREADED $<IF:$<AND:$<BOOL:${MSVC}>,$<NOT:$<BOOL:${BUILD_WITH_MT}>>>,OFF,ON>)
-  find_package(Boost 1.70.0 REQUIRED)
+  find_package(Boost 1.70 CONFIG COMPONENTS filesystem program_options uuid REQUIRED)
   list(APPEND compiler_definitions
       BOOST_ALL_NO_LIB
       $<$<CONFIG:RELWITHDEBINFO>:${Boost_LIB_DIAGNOSTIC_DEFINITIONS}>

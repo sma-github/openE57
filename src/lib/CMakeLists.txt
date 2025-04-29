@@ -36,10 +36,11 @@ target_include_directories(${PROJECT_NAME}
 target_include_directories(${PROJECT_NAME}
     PRIVATE
       $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/include>
-      ${XML_INCLUDE_DIRS} 
 )
 
-target_link_libraries(${PROJECT_NAME} PUBLIC ${XML_LIBRARIES})
+target_link_libraries(${PROJECT_NAME}
+   PUBLIC
+     XercesC::XercesC)
 target_clangformat_setup(${PROJECT_NAME})
 
 #
@@ -65,10 +66,12 @@ target_include_directories(${PROJECT_NAME}las
 target_include_directories(${PROJECT_NAME}las
     PRIVATE
       $<BUILD_INTERFACE:${PROJECT_BINARY_DIR}/include>
-      ${XML_INCLUDE_DIRS}
 )
 
-target_link_libraries(${PROJECT_NAME}las PUBLIC ${XML_LIBRARIES})
+target_link_libraries(${PROJECT_NAME}las
+   PUBLIC
+     XercesC::XercesC
+)
 target_clangformat_setup(${PROJECT_NAME}las)
 
 # 
@@ -114,13 +117,12 @@ if(BUILD_TESTS)
 
     target_include_directories(${TEST_CASE} PRIVATE 
       ${CMAKE_CURRENT_SOURCE_DIR}/include 
-      ${XML_INCLUDE_DIRS}
       ${doctest_INCLUDE_DIRS} )
 
     target_link_libraries(${TEST_CASE} 
       PRIVATE 
         ${PROJECT_NAME} 
-        ${XML_LIBRARIES}
+        XercesC::XercesC
         ${CMAKE_THREAD_LIBS_INIT}
     )
     target_clangformat_setup(${TEST_CASE})

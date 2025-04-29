@@ -21,15 +21,13 @@ foreach(TOOL ${TOOLS})
     PRIVATE 
       $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
       ${CMAKE_CURRENT_SOURCE_DIR}/../lib/include
-      ${XML_INCLUDE_DIRS}
-      ${Boost_INCLUDE_DIR}
   )
 
   target_link_libraries(${TOOL}
     PRIVATE 
       ${PROJECT_NAME} 
-      ${XML_LIBRARIES}
-      ${Boost_LIBRARIES}
+      Boost::filesystem
+      Boost::program_options
       ${CMAKE_THREAD_LIBS_INIT}
   )
   target_clangformat_setup(${TOOL})
@@ -51,16 +49,13 @@ target_include_directories(las2e57
   PRIVATE 
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
     ${CMAKE_CURRENT_SOURCE_DIR}/../lib/include
-    ${XML_INCLUDE_DIRS}
-    ${Boost_INCLUDE_DIR}
 )
 
 target_link_libraries(las2e57 
     PRIVATE 
       ${PROJECT_NAME}
       ${PROJECT_NAME}las 
-      ${XML_LIBRARIES}
-      ${Boost_LIBRARIES}
+      Boost::uuid
       ${CMAKE_THREAD_LIBS_INIT}
 )
 

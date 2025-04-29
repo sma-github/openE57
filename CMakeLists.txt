@@ -37,7 +37,7 @@
 # from apache is assumed. If you find any errors or have suggestion to improve
 # the build script: patches are most welcome!
 
-cmake_minimum_required(VERSION 3.15.0 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.20.0 FATAL_ERROR)
 
 # Enables the CMAKE_MSVC_RUNTIME_LIBRARY property on targets
 cmake_policy(SET CMP0091 NEW)
