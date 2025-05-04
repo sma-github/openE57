@@ -1,0 +1,40 @@
+{
+   "version": 3,
+   "cmakeMinimumRequired": {
+      "major": 3,
+      "minor": 20,
+      "patch": 0
+   },
+   "configurePresets": [
+      {
+         "name": "windows-msvc",
+         "displayName": "Default Config MSVC 2022",
+         "description": "Default build using MSVC 2022 (x64) generator",
+         "generator": "Visual Studio 17 2022",
+         "architecture": "x64",
+         "binaryDir": "${sourceDir}/build/windows-msvc",
+         "cacheVariables": {
+            "BUILD_EXAMPLES": {
+               "type": "BOOL",
+               "value": "FALSE"
+            },
+            "BUILD_TOOLS": {
+               "type": "BOOL",
+               "value": "FALSE"
+            },
+            "BUILD_TESTS": {
+               "type": "BOOL",
+               "value": "FALSE"
+            },
+            "BUILD_DOCS": {
+               "type": "BOOL",
+               "value": "FALSE"
+            },
+            "BUILD_SHARED_LIBS": {
+               "type": "BOOL",
+               "value": "FALSE"
+            }
+         }
+      }
+   ]
+}
