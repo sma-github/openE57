@@ -39,8 +39,6 @@
 
 cmake_minimum_required(VERSION 3.20.0 FATAL_ERROR)
 
-# Enables the CMAKE_MSVC_RUNTIME_LIBRARY property on targets
-cmake_policy(SET CMP0091 NEW)
 
 project(openE57 VERSION 1.7.0 LANGUAGES C CXX DESCRIPTION "openE57 is a library for handling E57 files")
 
@@ -62,7 +60,6 @@ option(BUILD_EXAMPLES "Build openE57 examples" FALSE)
 option(BUILD_TOOLS "Build openE57 tools" FALSE)
 option(BUILD_TESTS "Build openE57 tests" FALSE)
 option(BUILD_SHARED_LIBS "Build openE57 shared libraries" FALSE)
-option(BUILD_WITH_MT "Build the project with /MT when using Visual Studio" FALSE)
 
 if(BUILD_SHARED_LIBS)
   message(FATAL_ERROR "Shared Libraries are not supported due to missing exported symbols")

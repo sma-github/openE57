@@ -26,11 +26,6 @@ if(MSVC)
     $<$<BOOL:${BUILD_SHARED_LIBS}>:/LTCG>
   )
 
-  if(BUILD_WITH_MT)
-    set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
-    message(STATUS "Selected MSVC_RUNTIME_LIBRARY: ${CMAKE_MSVC_RUNTIME_LIBRARY}")
-  endif()
-
 elseif(WIN32 AND CMAKE_CXX_COMPILER_ID MATCHES "GNU")
   # MinGW compiler on Windows
   list(APPEND compiler_options

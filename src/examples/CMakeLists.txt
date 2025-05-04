@@ -6,8 +6,7 @@
 foreach(EXAMPLE ${EXAMPLES})
   add_executable(${EXAMPLE} ${EXAMPLE}.cpp)
   set_target_properties(${EXAMPLE}  PROPERTIES 
-    DEBUG_POSTFIX ${CMAKE_DEBUG_POSTFIX} 
-    MSVC_RUNTIME_LIBRARY "${CMAKE_MSVC_RUNTIME_LIBRARY}")
+    DEBUG_POSTFIX ${CMAKE_DEBUG_POSTFIX})
   target_compile_options(${EXAMPLE}  PUBLIC ${compiler_options})
   target_compile_definitions(${EXAMPLE}  PUBLIC ${compiler_definitions})
   target_link_options(${EXAMPLE}  PUBLIC ${linker_flags})
