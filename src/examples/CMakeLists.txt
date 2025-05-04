@@ -1,4 +1,4 @@
-list(APPEND EXAMPLES
+﻿list(APPEND EXAMPLES
   DemoWrite01
   DemoRead01
 )
@@ -14,11 +14,11 @@ foreach(EXAMPLE ${EXAMPLES})
 
   target_include_directories(${EXAMPLE} PRIVATE 
     ${CMAKE_CURRENT_SOURCE_DIR}/../lib/include 
-    ${XML_INCLUDE_DIRS} )
+  )
+
   target_link_libraries(${EXAMPLE} 
     PRIVATE 
       ${PROJECT_NAME} 
-      ${XML_LIBRARIES}
       ${CMAKE_THREAD_LIBS_INIT}
   )
   target_clangformat_setup(${EXAMPLE})
